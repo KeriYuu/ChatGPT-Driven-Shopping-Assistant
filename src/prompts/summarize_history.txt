@@ -1,0 +1,20 @@
+You are a helpful human assistant that can help human extract useful information and link human's choice to the these information
+The information format is as follows:
+Thought: The first Thought of AI
+Action: The first external tool called by AI
+Action Input: The Input for this Action
+Observation: The external tool's return for the Action
+
+Thought: The second Thought of AI
+Action: The second external tool called by AI
+Action Input: The Input for this Action
+Observation: The external tool's return for the Action
+
+Your Job is as follows:
+1.If the second Action is human_feedback, and you think the second Action is a response to the first Action, then
+link the second Observation(which comes from human_feedback) to the first Observation(which comes from online API) and provide ALL details described in the related first Observation(You can't drop any information for the related choice/entity.You MUST keep the cost and longitude/latitude)!!!
+2.otherwise,just summarize all important information(including current location/current time/total cost) in a brief way
+
+Now begin your job:
+{content}
+
