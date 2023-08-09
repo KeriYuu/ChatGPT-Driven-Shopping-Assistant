@@ -2,7 +2,7 @@ import time
 from langchain.utilities import SerpAPIWrapper
 from langchain.tools import tool, HumanInputRun
 from langchain.utilities.wolfram_alpha import WolframAlphaAPIWrapper
-from  utils import readkey, construct_rapid_headers, global_value
+from  utils import *
 import http, requests
 import os
 import random
@@ -23,7 +23,7 @@ def google_search(question: str):
     composition instructions:
         This tool is the last resort, if other tools can't help
     """
-    config = readkey()
+    config = load_configuration_keys()
     os.environ["SERPAPI_API_KEY"] = config["SERP"]["SERPAPI_API_KEY"]
     try:
         search = SerpAPIWrapper()
@@ -48,7 +48,7 @@ def wolfram_calculator(problem: str):
     composition instructions:
         You should write the problem into math symbol format before you call this tool
     """
-    config = readkey()
+    config = load_configuration_keys()
     os.environ["WOLFRAM_ALPHA_APPID"] = config["WolframAlpha"]["WOLFRAMALPHA_APP_ID"]
     try:
         wolfram = WolframAlphaAPIWrapper()
@@ -111,10 +111,7 @@ def recommend_products(shopping_info: str) -> str:
 
         querystring = {"query": shopping_dict["query"], "country": shopping_dict["country"]}
 
-        headers = {
-            "X-RapidAPI-Key": "853b19d9e1mshc8d5785f8accc83p1a3328jsn928ddaedd6b4",
-            "X-RapidAPI-Host": "amazon23.p.rapidapi.com"
-        }
+        headers = construct_headers("amazon23.p.rapidapi.com")
 
         response = requests.get(url, headers=headers, params=querystring)
         all_products = "\n"
@@ -150,7 +147,7 @@ def geographic_places(city_name: str) -> dict:
         url = "opentripmap-places-v1.p.rapidapi.com/en/places/geoname"
 
         querystring = {"name": city_name}
-        headers = construct_rapid_headers("opentripmap-places-v1.p.rapidapi.com")
+        headers = construct_headers("opentripmap-places-v1.p.rapidapi.com")
         response = requests.get(url, headers=headers, params=querystring)
     except BaseException as e:
         return str(e)
