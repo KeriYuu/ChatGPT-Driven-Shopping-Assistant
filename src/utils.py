@@ -17,7 +17,7 @@ class GOLOBAL_VAL():
             print("no such key!")
 
 def readkey():
-    config_path = "apikey.ini"
+    config_path = "keys.txt"
     config = configparser.ConfigParser()
     config.read(config_path)
     return config
