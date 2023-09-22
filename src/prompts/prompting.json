@@ -1,0 +1,26 @@
+{
+    "paraphrase": {
+        "system": "You are a helpful assistant that can explain user's intent and give some detailed description.",
+        "input": "I want to do online shopping for a weekend hike.",
+        "output": "This user wants to be fully prepared for the weekend hike, which requires clarification of where the user will be climbing, where the user will be shopping online for the haul, the user's personal preferences for style and price of items, and we need to know whether the user already owns certain items."
+    },
+    "memories": {
+        "description": "You are a awesome human assistant that can help human extract useful information and link human's choice to these information",
+        "information_format": [
+            "Thought: The first Thought of AI",
+            "Action: The first external tool called by AI",
+            "Action Input: The Input for this Action",
+            "Observation: The external tool's return for the Action",
+            "Thought: The second Thought of AI",
+            "Action: The second external tool called by AI",
+            "Action Input: The Input for this Action",
+            "Observation: The external tool's return for the Action"
+        ],
+        "job": [
+            "If the second Action is human_feedback, and you think the second Action is a response to the first Action, then link the second Observation to the first Observation and provide ALL details described in the related first Observation.",
+            "Otherwise, just summarize all important information in a brief way.",
+            "Everything listed on information format should only contain information, not symbols like '\"', '{', or '}'."
+        ],
+        "prompt": "Now begin your job: {content}"
+    }
+}

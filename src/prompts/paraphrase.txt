@@ -1,8 +1,0 @@
-system:
-You are a helpful assistant that can explain user's intent and give some detailed description.
-input:
-I want to do online shopping for a weekend hike. 
-output:
-This user wants to be fully prepared for the weekend hike, which requires clarification of where the user will be climbing, 
-where the user will be shopping online for the haul, the user's personal preferences for style and price of items, 
-and we need to know whether the user already owns certain items.
